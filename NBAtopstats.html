@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>클라이언트 구축 4</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h2>NBA Top Stat Players</h2>
+    <div id="instance">
+      <img v-bind:src="img" width="100px" height="100px"></img>
+      <h2>{{ title }}</h2>
+      <select v-model='select' size='4'>
+          <option value=''>-- select --</option>
+          <option v-for="value in Dataset">{{ value.name }}</option>
+      </select>
+      <h4>{{ select }}</h4>
+      <div v-for="player in Dataset">
+        <p v-show="player.name == select">Point : {{ player.point }} <br> Assist : {{ player.assist }}
+        <br> Rebound : {{ player.rebound }} <br> Steal : {{ player.steal }} <br> Block : {{ player.block }} </p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#instance',
+        data () {
+          return {
+            img: 'https://kr.vuejs.org/images/logo.png',
+            title : 'NBA stats',
+            select : '',
+            Dataset : [ { name : "James Harden" , point : 39.3 , assist : 7.5 ,
+                          rebound : 5.9 , steal : 2.0 , block : 0.7  },
+                        { name : "Yannis Antetokounmbo" , point : 31.1 , assist : 5.4 ,
+                          rebound : 13.1 , steal : 1.3 , block : 1.2  },
+                        { name : "Luka Doncic" , point : 30.4, assist : 9.3 ,
+                          rebound : 9.9 , steal : 2.0 , block : 0.1 },
+                        { name : "Trae Young" , point : 27.7 , assist : 8.6 ,
+                          rebound : 4.1 , steal : 1.2 , block : 0.1  },
+                        { name : "Bradley Beal" , point : 27.4 , assist : 7.0 ,
+                          rebound : 4.5 , steal : 0.9 , block : 0.3  },
+                        { name : "Anthony Davis" , point : 27.4 , assist : 3.3 ,
+                          rebound : 9.2 , steal : 1.5 , block : 2.6  },
+                        { name : "Karl-Anthony Towns Jr." , point : 26.5 , assist : 4.4 ,
+                          rebound : 11.7 , steal : 1.0 , block : 1.3  },
+                        { name : "Damian Lillard" , point : 26.3 , assist : 7.5 ,
+                          rebound : 4.4 , steal : 1.0 , block : 0.4  },
+                        { name : "Leborn James" , point : 25.9 , assist : 7.1 ,
+                          rebound : 7.1 , steal : 1.3 , block : 0.5  },
+                        { name : "Kawhi Leonard" , point : 25.8 , assist : 5.1 ,
+                          rebound : 7.9 , steal : 1.8 , block : 0.7  },
+                      ]
+          }
+        },
+      })
+    </script>
+  </body>
+</html>
