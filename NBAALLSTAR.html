@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NBA ALL START VOTE</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+    <body>
+      <h2>NBA ALL START VOTE</h2>
+      <div id="instance">
+        <h2>philadelphia 76ers</h2>
+        <img v-bind:src="simmons_img" width="300px" height="200px"></img><br>
+        <button @click="Ben++" style="height:50px">Ben Simmons</button><div>   Vote : {{Ben}}</div><br>
+        <img v-bind:src="josh_img" width="300px" height="200px"></img><br>
+        <button @click="Josh++" style="height:50px">Josh Richardson</button><div>   Vote : {{Josh}}</div><br><br>
+        <img v-bind:src="harris_img" width="300px" height="200px"></img><br>
+        <button @click="Harris++" style="height:50px">Tobias Harris</button><div>   Vote : {{Harris}}</div><br><br>
+        <img v-bind:src="al_img" width="300px" height="200px"></img><br>
+        <button @click="Al++" style="height:50px">Al Horford</button><div>   Vote : {{Al}}</div><br><br>
+        <img v-bind:src="joel_img" width="300px" height="200px"></img><br>
+        <button @click="Embiid++"  style="height:50px">Joel Embiid</button><div>   Vote : {{Embiid}}</div><br><br>
+      </div>
+      <script type="text/javascript">
+        var app = new Vue({
+          el: '#instance',
+          data: {
+            simmons_img: 'https://www.opencourt-basketball.com/wp-content/uploads/2019/04/simmons-let-me-hear-it.jpg',
+            josh_img: 'https://imageproxy.themaven.net/https%3A%2F%2Fimages.saymedia-content.com%2F.image%2FMTY4OTM2ODIzMDYwNDQxMDA0%2Fusatsi_13704609.jpg?w=1182&q=30&h=833&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=false',
+            harris_img: 'https://images.radio.com/wipfm/styles/nts_image_cover_tall_775x425/s3/Tobias_Harris_4.jpg',
+            al_img: 'https://imageproxy.themaven.net/https%3A%2F%2Fimages.saymedia-content.com%2F.image%2FMTY5MDAwOTI5NzQyMzAwOTEx%2Fusatsi_13755439.jpg?w=1182&q=30&h=788&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&fp-z=1&fp-debug=false',
+            joel_img: 'https://cdn.vox-cdn.com/thumbor/5FQbG21GBqUu-bo5vyDxo1lAarc=/0x0:4061x2944/920x613/filters:focal(2218x1124:2866x1772):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/65573377/1184080310.jpg.0.jpg',
+            Ben: 0,
+            Josh: 0,
+            Harris: 0,
+            Al: 0,
+            Embiid: 0
+          },
+          methods: {
+            Plus: function(data){
+              this.data+=1
+            },
+          }
+        })
+      </script>
+    </body>
+  </html>
