@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NBA Team Info</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    .playoff{
+      color: gold;
+    }
+    .underrank{
+      font-size: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <h2>NBA Team Info</h2>
+    <div id="instance">
+      <select v-model='select' size='5'>
+          <option value=''>-- select --</option>
+          <option v-for="team in teams" v-bind:value='team'>{{ team.Name }}</option>
+      </select>
+      <div id="info">
+        <h2 :style="{ color: select.Color }">{{ select.Name }}</h2>
+        <img
+        v-bind:src="select.Image"
+        width="300px" height="210px"></img><br>
+        <div class="underrank" v-bind:class ="{ playoff: select.POpossible }">Rank : {{ select.Rank }}</div><br>
+        <h4>Player</h4>
+        <div style="font-size: 15px">Point Guard : {{ select.PGuard }}</div>
+        <div style="font-size: 15px">Shooting Guard : {{ select.SGuard }}</div>
+        <div style="font-size: 15px">Small Forward : {{ select.Sforward }}</div>
+        <div style="font-size: 15px">Power Forward : {{ select.Pforward }}</div>
+        <div style="font-size: 15px">Center : {{ select.Center }}</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#instance',
+        data: {
+          select: '',
+          teams: [
+            {
+              Id: 1,
+              Name: "LA Lakers",
+              Color: '#8E44AD',
+              Image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/437px-Los_Angeles_Lakers_logo.svg.png',
+              Rank: 1,
+              POpossible: true,
+              PGuard: "Kentavious Caldwell-Pope",
+              SGuard: "Danny Green",
+              Sforward: "Leborn James",
+              Pforward: "Anthony Davis",
+              Center: "Demarcus Cousins",
+            },
+            {
+              Id: 2,
+              Name: "LA Clippers",
+              Color: '#154360',
+              Image: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Los_Angeles_Clippers_%282015%29.svg/426px-Los_Angeles_Clippers_%282015%29.svg.png',
+              Rank: 3,
+              POpossible: true,
+              PGuard: "Patrick Beverley",
+              SGuard: "Lou Williams",
+              Sforward: "Paul George",
+              Pforward: "Kawhi Leonard",
+              Center: "Montrezl Harrell",
+            },
+            {
+              Id: 3,
+              Name: "Phoenix Suns",
+              Color: '#7D3C98',
+              Image: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Phoenix_Suns_logo.svg/300px-Phoenix_Suns_logo.svg.png',
+              Rank: 10,
+              POpossible: false,
+              PGuard: "Ricky Rubio",
+              SGuard: "Devin Booker",
+              Sforward: "kelly oubre Jr.",
+              Pforward: "Dario Saric",
+              Center: "Deandre Ayton",
+            },
+            {
+              Id: 4,
+              Name: "Sacramento Kings",
+              Color: '#E8DAEF',
+              Image: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/SacramentoKings.svg/300px-SacramentoKings.svg.png',
+              Rank: 13,
+              POpossible: false,
+              PGuard: "De'Aaron Fox",
+              SGuard: "Buddy Hield",
+              Sforward: "Harrison Barnes",
+              Pforward: "Marvin Bagley III",
+              Center: "Dewayne Dedmon",
+            },
+            {
+              Id: 5,
+              Name: "Golden State Warriors",
+              Color: '#5DADE2',
+              Image: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Golden_State_Warriors_logo.svg/800px-Golden_State_Warriors_logo.svg.png',
+              Rank: 15,
+              POpossible: false,
+              PGuard: "Stephen Curry",
+              SGuard: "D'Angelo Russell",
+              Sforward: "Eric Paschall",
+              Pforward: "Draymond Green",
+              Center: "Willie Cauley-Stein",
+            }
+          ]
+        },
+        methods: {
+
+        }
+      })
+    </script>
+  </body>
+</html>
